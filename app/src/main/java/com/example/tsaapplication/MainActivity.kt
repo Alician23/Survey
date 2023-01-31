@@ -2,6 +2,7 @@ package com.example.tsaapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -44,11 +45,24 @@ class MainActivity : AppCompatActivity() {
     private fun showRandomArrow() {
         tapHereButton.visibility = View.INVISIBLE
         val direction = listOf("left", "right").random()
-        if ( direction == "left") {
+        if (direction == "left") {
             leftArrow.visibility = View.VISIBLE
-        }else {
-           rightArrow.visibility = View.VISIBLE
+        } else {
+            rightArrow.visibility = View.VISIBLE
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        Log.i("Main Activity", "The Activity is paused")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.i("Main Activity", "The Activity is resumed")
+    }
+
 }
+
+
+
